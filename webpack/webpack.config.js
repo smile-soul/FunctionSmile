@@ -3,7 +3,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HappyPack = require('happypack');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
-const config = require('./webpack.file');
 
 module.exports = {
   entry: {
@@ -19,8 +18,7 @@ module.exports = {
     modules: [
       path.resolve(__dirname, '../src'),
       path.resolve(__dirname, '../node_modules'),
-      'node_modules',
-      ...config.pathModule,
+      'node_modules'
     ],
     extensions: ['.js', '.json', '.jsx', '.ts', '.tsx', '.less'],
     alias: {
@@ -75,7 +73,6 @@ module.exports = {
             loader: 'less-loader',
             options: {
               sourceMap: true,
-              modifyVars: config.themeSetting.antdTheme,
             },
           },
         ],
@@ -187,16 +184,12 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-      'process.env.AUTH_HOST': JSON.stringify(`${process.env.SERVER}/oauth`),
-      'process.env.CLIENT_ID': JSON.stringify(`${config.clientid}`),
-      'process.env.API_HOST': JSON.stringify(`${process.env.SERVER}`),
-      // 'process.env.API_HOST': JSON.stringify('http://gateway.hapcloud.stage.cloud.saas.hand-china.com'),
     }),
     new HtmlWebpackPlugin({
       title: config.titlename,
-      template: path.resolve(__dirname, '../src/index.template.html'),
+      template: path.resolve(__dirname, '../src/index.html'),
       inject: true,
-      favicon: path.resolve(__dirname, `../../${config.favicon}`),
+      favicon: path.resolve(__dirname, `../favicon.png`),
       minify: {
         html5: true,
         collapseWhitespace: true,
