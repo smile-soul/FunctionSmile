@@ -1,5 +1,26 @@
 {
+  "name": "ReactCompontent",
+  "version": "1.0.0",
+  "description": "smilesoul react compontent",
+  "main": "index.js",
+  "repository": "git@github.com:smile-soul/ReactCompontent-Smile.git",
+  "author": "smile <517578601@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "rollup --config ./rollup/rollup.config.dev.js"
+  },
   "dependencies": {
-    "webpack-dev-server": "^2.9.4"
+    "rollup": "^0.52.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-latest": "^6.24.1",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "the-answer": "^1.0.0"
   }
 }

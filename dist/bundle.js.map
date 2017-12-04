@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","sources":["../src/main.ts"],"sourcesContent":["let a:number = 2;\nconsole.log(a);"],"names":["a","console","log"],"mappings":"AAAA,IAAIA,IAAW,CAAf;AACAC,QAAQC,GAAR,CAAYF,CAAZ"}
