@@ -10,17 +10,22 @@
     "start": "rollup --config ./rollup/rollup.config.dev.js"
   },
   "dependencies": {
-    "rollup": "^0.52.0"
+    "rollup": "^0.52.0",
+    "rollup-plugin-alias": "^1.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-latest": "^6.24.1",
+    "lodash": "^4.17.4",
+    "postcss-modules": "^1.1.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-postcss": "^0.5.5",
     "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-visualizer": "^0.3.1",
     "the-answer": "^1.0.0"
   }
 }
