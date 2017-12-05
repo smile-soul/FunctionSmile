@@ -16,6 +16,8 @@ function __$styleInject(css, returnValue) {
   return returnValue;
 }
 
-var a = 2;
+var a = 5555;
+console.log(a);
+console.log(a);
 console.log(a);
 //# sourceMappingURL=bundle.js.map

@@ -8,8 +8,11 @@ import postcssModules from 'postcss-modules';
 import Visualizer from 'rollup-plugin-visualizer';
 import alias from 'rollup-plugin-alias';
 import babelrc from 'babelrc-rollup';
+import replace from 'rollup-plugin-replace';
+// import serve from 'rollup-plugin-serve'
+// import livereload from 'rollup-plugin-livereload'
 
-const devconfig = {
+const config = {
     input: './src/main.ts',
     output: {
         file: './dist/bundle.js',
@@ -17,15 +20,24 @@ const devconfig = {
         name: 'lib',
         sourcemap: true
     },
+    watch: {
+        chokidar: true,
+        include: './src',
+    },
     plugins: [
+        // serve('./dist'),
+        // livereload(),
         json(),
         rollupTypescript(),
         commonjs(),
         Visualizer({
             sourcemap: true
-          }),
+        }),
         alias({
-        somelibrary: './mylocallibrary'
+            somelibrary: './mylocallibrary'
+        }),
+        replace({
+            ENVIRONMENT: JSON.stringify('production')
         }),
         postcss({
             plugins: [
@@ -56,4 +68,4 @@ const devconfig = {
     external: ['lodash']
 }
 
-export default devconfig;
+export default config;

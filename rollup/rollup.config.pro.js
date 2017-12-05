@@ -8,8 +8,9 @@ import postcssModules from 'postcss-modules';
 import Visualizer from 'rollup-plugin-visualizer';
 import alias from 'rollup-plugin-alias';
 import babelrc from 'babelrc-rollup';
+import uglify from 'rollup-plugin-uglify';
 
-const devconfig = {
+const proconfig = {
     input: './src/main.ts',
     output: {
         file: './dist/bundle.js',
