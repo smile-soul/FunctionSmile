@@ -10,13 +10,22 @@
     "start": "rollup --config ./rollup/rollup.config.dev.js"
   },
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.34",
+    "@babel/preset-react": "^7.0.0-beta.34",
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "babelrc-rollup": "^3.0.0",
     "rollup": "^0.52.0",
     "rollup-plugin-alias": "^1.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-lodash": "^3.3.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "lodash": "^4.17.4",
     "postcss-modules": "^1.1.0",
     "rollup-plugin-babel": "^3.0.2",

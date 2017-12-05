@@ -1,0 +1,32 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "safari >= 7"
+          ],
+          "node": "8.9.1"
+        }
+      }
+    ],
+    ["es2015", {
+      "module": false
+    }]
+  ],
+  "plugins": [
+    "external-helpers",
+    "lodash",
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": "babel-runtime"
+      }
+    ]
+  ]
+}
