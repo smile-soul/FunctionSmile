@@ -16,17 +16,17 @@ function __$styleInject(css, returnValue) {
   return returnValue;
 }
 
-// import React from 'react';
-
-// import { storiesOf } from '@storybook/react';
-// import { action } from '@storybook/addon-actions';
-// import { linkTo } from '@storybook/addon-links';
-
-// import { Button, Welcome } from '@storybook/react/demo';
-
-// storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
-
-// storiesOf('Button', module)
-//   .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-//   .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
+var chunk = function chunk(data, lengthDdata) {
+    var name = [];
+    for (var i = void 0; i <= data.length / lengthDdata; i++) {
+        var center = [];
+        for (var k = 1; k <= lengthDdata; k++) {
+            center.push(data[k]);
+        }
+        
+        name.push(center);
+    }
+    return name;
+};
+console.log(chunk([1, 2, 3, 4, 5, 6, 7, 8], 4));
 //# sourceMappingURL=bundle.js.map
