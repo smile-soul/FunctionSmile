@@ -16,11 +16,11 @@ function __$styleInject(css, returnValue) {
   return returnValue;
 }
 
-var chunk = function chunk(data, lengthDdata) {
+var chunk = function chunk(data, lengthdata) {
     var name = [];
-    for (var i = void 0; i <= data.length / lengthDdata; i++) {
+    for (var i = 0; i < data.length; i += lengthdata) {
         var center = [];
-        for (var k = 1; k <= lengthDdata; k++) {
+        for (var k = i; k < data.length; k++) {
             center.push(data[k]);
         }
         
