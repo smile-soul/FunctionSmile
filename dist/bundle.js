@@ -15,18 +15,4 @@ function __$styleInject(css, returnValue) {
   }
   return returnValue;
 }
-
-var chunk = function chunk(data, lengthdata) {
-    var name = [];
-    for (var i = 0; i < data.length; i += lengthdata) {
-        var center = [];
-        for (var k = i; k < data.length; k++) {
-            center.push(data[k]);
-        }
-        
-        name.push(center);
-    }
-    return name;
-};
-console.log(chunk([1, 2, 3, 4, 5, 6, 7, 8], 4));
 //# sourceMappingURL=bundle.js.map
