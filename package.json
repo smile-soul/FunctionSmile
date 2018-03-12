@@ -7,7 +7,7 @@
   "author": "smile <517578601@qq.com>",
   "license": "MIT",
   "scripts": {
-    "start": "rollup --config ./rollup/rollup.config.js"
+    "start": "rollup --config ./rollup/rollup.config.js && node ./dist/bundle.js"
   },
   "dependencies": {
     "babel-preset-es2015-rollup": "^3.0.0",
