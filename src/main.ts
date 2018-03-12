@@ -1,3 +1,5 @@
-import { bubbleSort } from './algorithm';
+import { Sort } from './algorithm';
 
-console.log(bubbleSort([7,4,3,2,1,9,8]));
+const ListSort = new Sort([7,4,3,2,1,9,8]);
+console.log(ListSort.bubbleSort());
+console.log(ListSort.selectSort());

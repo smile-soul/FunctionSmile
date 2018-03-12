@@ -17,22 +17,52 @@ function __$styleInject(css, returnValue) {
 }
 
 // 时间复杂度n平方
-function bubbleSort(List) {
-    if (!List || List.length <= 0) {
-        return;
-    } else {
-        for (var i = 0; i <= List.length - 1; i++) {
-            for (var j = 0; j <= List.length - 1; j++) {
-                if (List[j] > List[j + 1]) {
-                    _a = [List[j + 1], List[j]], List[j] = _a[0], List[j + 1] = _a[1];
-                } //正序
-            }
-            
-        }
-    }
-    return List;
-    var _a;
-}
 
-console.log(bubbleSort([7, 4, 3, 2, 1, 9, 8]));
+var ListSort$1 = function () {
+    function ListSort(element) {
+        this.element = element;
+        this.length = element.length - 1;
+    }
+    ListSort.compareLarge = function (a, b) {
+        var result = a > b ? true : false;
+        return result;
+    };
+    ListSort.compareSmall = function (a, b) {
+        var result = a > b ? false : true;
+        return result;
+    };
+    ListSort.prototype.bubbleSort = function () {
+        var centerElement = this.element;
+        for (var i = 0; i <= this.length; i++) {
+            for (var j = 0; j <= this.length; j++) {
+                if (ListSort.compareLarge(centerElement[j + 1], centerElement[j])) {
+                    _a = [centerElement[j + 1], centerElement[j]], centerElement[j] = _a[0], centerElement[j + 1] = _a[1];
+                }
+            }
+        }
+        return centerElement;
+        var _a;
+    };
+    ListSort.prototype.selectSort = function () {
+        var centerElement = this.element;
+        for (var i = 0; i <= this.length; i++) {
+            var minIndex = i;
+            for (var j = 1; j <= this.length; j++) {
+                if (ListSort.compareSmall(centerElement[j], centerElement[j - 1])) {
+                    minIndex = j;
+                }
+            }
+            if (minIndex != i) {
+                _a = [centerElement[i], centerElement[minIndex]], centerElement[minIndex] = _a[0], centerElement[i] = _a[1];
+            }
+        }
+        return centerElement;
+        var _a;
+    };
+    return ListSort;
+}();
+
+var ListSort = new ListSort$1([7, 4, 3, 2, 1, 9, 8]);
+console.log(ListSort.bubbleSort());
+console.log(ListSort.selectSort());
 //# sourceMappingURL=bundle.js.map
