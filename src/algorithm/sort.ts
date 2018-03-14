@@ -47,11 +47,22 @@ class ListSort implements List {
     }
     public insertSort() {
         const centerElement = this.element;
-        for(let i = 0; i <= this.length; i ++) {
-            for (let j = 0; j <= this.length; j ++) {
-                if(ListSort.compareSmall(centerElement[j + 1], centerElement[j])) {
-                    
-                }
+        for (let i = 1; i <= this.length; i ++) {
+            let key = centerElement[i];
+            for (let j = i - 1; j >= 0 && ListSort.compareLarge(centerElement[j], key); j --) {
+                centerElement[j + 1] = centerElement[j];
+                centerElement[j] = key;
+            }
+        }
+        return centerElement;
+    }
+    public shellSort() {
+        const centerElement = this.element;
+        for (let i = this.length; i > 0; i = Math.floor(i / 2)) {
+            let key = centerElement[Math.floor(i / 2)];
+            for(let j = Math.floor(i / 2); j >= 0 && ListSort.compareLarge(centerElement[j],key); j = j - Math.floor(i / 2)) {
+                centerElement[j + 1] = centerElement[j];
+                centerElement[j] = key;
             }
         }
         return centerElement;

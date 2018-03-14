@@ -59,10 +59,62 @@ var ListSort$1 = function () {
         return centerElement;
         var _a;
     };
+    ListSort.prototype.insertSort = function () {
+        var centerElement = this.element;
+        for (var i = 1; i <= this.length; i++) {
+            var key = centerElement[i];
+            for (var j = i - 1; j >= 0 && ListSort.compareLarge(centerElement[j], key); j--) {
+                centerElement[j + 1] = centerElement[j];
+                centerElement[j] = key;
+            }
+        }
+        return centerElement;
+    };
+    ListSort.prototype.shellSort = function () {
+        var centerElement = this.element;
+        for (var i = this.length; i > 0; i = Math.floor(i / 2)) {
+            var key = centerElement[Math.floor(i / 2)];
+            for (var j = Math.floor(i / 2); j >= 0 && ListSort.compareLarge(centerElement[j], key); j = j - Math.floor(i / 2)) {
+                centerElement[j + 1] = centerElement[j];
+                centerElement[j] = key;
+            }
+        }
+        return centerElement;
+    };
+    ListSort.prototype.mergeSort = function (element) {
+        var centerLength = element.length;
+        if (centerLength < 2) {
+            return element;
+        }
+        var middle = Math.floor(centerLength / 2);
+        var left = element.slice(0, middle);
+        var right = element.slice(middle);
+        return this.merge(this.mergeSort(left), this.mergeSort(right));
+    };
+    ListSort.prototype.merge = function (left, right) {
+        console.log(left);
+        console.log(right);
+        var result = [];
+        while (left.length && right.length) {
+            if (left[0] <= right[0]) {
+                result.push(left.shift());
+            } else {
+                result.push(right.shift());
+            }
+        }
+        while (left.length) {
+            result.push(left.shift());
+        }while (right.length) {
+            result.push(left.shift());
+        }return result;
+    };
     return ListSort;
 }();
 
 var ListSort = new ListSort$1([7, 4, 3, 2, 1, 9, 8]);
 console.log(ListSort.bubbleSort());
 console.log(ListSort.selectSort());
+console.log(ListSort.insertSort());
+console.log(ListSort.shellSort());
+console.log(ListSort.mergeSort([7, 4, 3, 2, 1, 9, 8]));
 //# sourceMappingURL=bundle.js.map
