@@ -81,34 +81,34 @@ var ListSort$1 = function () {
         }
         return centerElement;
     };
-    ListSort.prototype.mergeSort = function (element) {
-        var centerLength = element.length;
-        if (centerLength < 2) {
-            return element;
-        }
-        var middle = Math.floor(centerLength / 2);
-        var left = element.slice(0, middle);
-        var right = element.slice(middle);
-        return this.merge(this.mergeSort(left), this.mergeSort(right));
-    };
-    ListSort.prototype.merge = function (left, right) {
-        console.log(left);
-        console.log(right);
-        var result = [];
-        while (left.length && right.length) {
-            if (left[0] <= right[0]) {
-                result.push(left.shift());
-            } else {
-                result.push(right.shift());
+    return ListSort;
+}();
+
+var ListSearch$1 = function () {
+    function ListSearch(element) {
+        this.element = element;
+        this.length = element.length;
+    }
+    ListSearch.prototype.SequenceSearch = function (value) {
+        for (var i = 0; i < this.length; i++) {
+            if (this.element[i] == value) {
+                return i;
             }
         }
-        while (left.length) {
-            result.push(left.shift());
-        }while (right.length) {
-            result.push(left.shift());
-        }return result;
+        return -1;
     };
-    return ListSort;
+    ListSearch.prototype.BinarySearch = function (arrayList, element) {
+        var middle = Math.floor(arrayList.length / 2);
+        console.log(middle);
+        // if(arrayList[middle] == element) {
+        //     return middle;
+        // } else if (arrayList[middle] > element) {
+        //     this.BinarySearch(arrayList.slice(0,middle), element);
+        // } else if (arrayList[middle] < element) {
+        //     this.BinarySearch(arrayList.slice(middle), element);
+        // }
+    };
+    return ListSearch;
 }();
 
 var ListSort = new ListSort$1([7, 4, 3, 2, 1, 9, 8]);
@@ -116,5 +116,7 @@ console.log(ListSort.bubbleSort());
 console.log(ListSort.selectSort());
 console.log(ListSort.insertSort());
 console.log(ListSort.shellSort());
-console.log(ListSort.mergeSort([7, 4, 3, 2, 1, 9, 8]));
+var ListSearch = new ListSearch$1([2, 3, 4, 5, 6, 7]);
+console.log(ListSearch.SequenceSearch(3));
+console.log(ListSearch.BinarySearch([1, 2, 3, 4, 5, 6], 5));
 //# sourceMappingURL=bundle.js.map
